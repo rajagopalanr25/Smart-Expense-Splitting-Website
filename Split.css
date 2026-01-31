@@ -1,0 +1,13 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  background-color: #EFEDE7;
+  color: #556B2F;
+}
+.activeTab {
+    background-color: white !important;
+    border: 2px solid black !important;
+    color: #6B8E23 !important;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  }

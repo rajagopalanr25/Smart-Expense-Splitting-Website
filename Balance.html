@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Balance & Payments</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen bg-[#f5f3ee] text-[#2f3e2e] font-sans">
+ <!-- NAVBAR -->
+    <nav class="bg-[#f5f3ee] border-b border-[#d6d2c4] sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+
+            <!-- Top Row -->
+            <div class="flex items-center justify-between gap-3">
+                <h1 class="text-lg sm:text-2xl font-extrabold text-[#556b2f] flex items-center gap-2 leading-tight">
+                    Smart Expense Splitter
+                </h1>
+
+                <div class="flex items-center gap-3">
+                    <span class="hidden sm:inline text-sm text-[#6b705c]">Group</span>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="menuBtn"
+                        class="sm:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg bg-[#e6e2d8] text-[#4a5d23] hover:bg-[#dcd6c6] transition"
+                        aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+                        ☰
+                    </button>
+                </div>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden sm:flex flex-wrap gap-2 mt-4">
+                <a href="index.html"><button class="px-4 py-2 rounded-lg bg-[#e6e2d8] text-[#4a5d23] hover:bg-[#dcd6c6] transition text-sm">
+                    Home
+                </button></a>
+            
+                <a href="Members.html"><button class="px-4 py-2 rounded-lg bg-[#6b8e23] text-white font-semibold text-sm">
+                    Members
+                </button></a>
+                <a href="Expense.html"><button class="px-4 py-2 rounded-lg bg-[#e6e2d8] text-[#4a5d23] hover:bg-[#dcd6c6] transition text-sm">
+                    Add Expense
+                </button></a>
+                <a href="Split.html"><button class="px-4 py-2 rounded-lg bg-[#e6e2d8] text-[#4a5d23] hover:bg-[#dcd6c6] transition text-sm">
+                    Split Calculator
+                </button></a>
+                <a href="Balance.html"><button class="px-4 py-2 rounded-lg bg-[#e6e2d8] text-[#4a5d23] hover:bg-[#dcd6c6] transition text-sm">
+                    Balances
+                </button></a>
+                <a href="History.html"><button class="px-4 py-2 rounded-lg bg-[#e6e2d8] text-[#4a5d23] hover:bg-[#dcd6c6] transition text-sm">
+                    History
+                </button></a>
+            </div>
+
+            <!-- Mobile Navigation (Toggle) -->
+            <div id="mobileMenu" class="sm:hidden hidden mt-4">
+                <div class="grid grid-cols-2 gap-2">
+                    <a href="index.html"><button class="px-4 py-2 rounded-lg bg-[#e6e2d8] text-[#4a5d23] hover:bg-[#dcd6c6] transition text-sm">
+                    Home
+                </button></a>
+            
+                <a href="Members.html"><button class="px-4 py-2 rounded-lg bg-[#e6e2d8] text-[#4a5d23] hover:bg-[#dcd6c6] transition text-sm">
+                    Members
+                </button></a>
+                <a href="Expense.html"><button class="px-4 py-2 rounded-lg bg-[#e6e2d8] text-[#4a5d23] hover:bg-[#dcd6c6] transition text-sm">
+                    Add Expense
+                </button></a>
+                <a href="Split.html"><button class="px-4 py-2 rounded-lg bg-[#e6e2d8] text-[#4a5d23] hover:bg-[#dcd6c6] transition text-sm">
+                    Split Calculator
+                </button></a>
+                <a href="Balance.html"><button class="px-4 py-2 rounded-lg bg-[#6b8e23] text-white font-semibold text-sm">
+                    Balances
+                </button></a>
+                <a href="History.html"><button
+                    class="px-4 py-2 rounded-lg bg-[#e6e2d8] text-[#4a5d23] hover:bg-[#dcd6c6] transition text-sm"></button>
+                History
+                </button></a>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+
+  <!-- MAIN -->
+  <main class="max-w-6xl mx-auto px-6 py-10">
+    <!-- Title -->
+    <div class="mb-10">
+      <h2 class="text-3xl font-bold text-[#2f3e2e]">
+        Balance & Payments
+      </h2>
+      <p class="text-[#6b705c] mt-1">
+        Understand balances and settle dues easily
+      </p>
+    </div>
+
+    <!-- Cards -->
+    <div class="grid lg:grid-cols-2 gap-8">
+
+      <!-- Individual -->
+      <div class="bg-white rounded-3xl shadow-lg p-8">
+        <div class="flex justify-between items-center mb-6">
+          <h3 class="text-xl font-semibold text-[#2f3e2e]">
+            Individual Balances
+          </h3>
+
+        </div>
+
+        <div class="text-center py-16">
+          <div class="mx-auto w-14 h-14 rounded-full bg-[#e6e2d8] flex items-center justify-center mb-4">
+            <span class="text-[#6b8e23] text-2xl">₹</span>
+          </div>
+          <p class="font-medium">No expenses added yet</p>
+          <p class="text-sm text-[#6b705c] mt-1">
+            Add an expense to calculate balances
+          </p>
+        </div>
+      </div>
+
+      <!-- Settlement -->
+      <div class="bg-white rounded-3xl shadow-lg p-8">
+        <div class="flex justify-between items-center mb-6">
+          <h3 class="text-xl font-semibold text-[#2f3e2e]">
+            Settlement Details
+          </h3>
+        </div>
+
+        <div class="text-center py-16">
+          <div class="mx-auto w-14 h-14 rounded-full bg-[#e6e2d8] flex items-center justify-center mb-4">
+            <span class="text-[#6b8e23] text-xl">✓</span>
+          </div>
+          <p class="font-medium">No settlements to show</p>
+          <p class="text-sm text-[#6b705c] mt-1">
+            Settlements will appear here
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+  <script src="Balance.js"></script>
+  
+  <script>
+    menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+
+
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    menuBtn.addEventListener('click', () => {
+
+      mobileMenu.classList.toggle('hidden');
+
+      //Change the button icon between ☰ and ✕
+      if (mobileMenu.classList.contains('hidden')) {
+        menuBtn.textContent = '☰';
+      } else {
+        menuBtn.textContent = '✕';
+      }
+    })
+  </script>;
+
+
+</body>
+
+</html>

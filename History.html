@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Expense History | Smart Expense Splitter</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen bg-[#efede7] text-[#2f3e2e] font-sans">
+ <!-- NAVBAR -->
+    <nav class="bg-[#f5f3ee] border-b border-[#d6d2c4] sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+
+            <!-- Top Row -->
+            <div class="flex items-center justify-between gap-3">
+                <h1 class="text-lg sm:text-2xl font-extrabold text-[#556b2f] flex items-center gap-2 leading-tight">
+                    Smart Expense Splitter
+                </h1>
+
+                <div class="flex items-center gap-3">
+                    <span class="hidden sm:inline text-sm text-[#6b705c]">Group</span>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="menuBtn"
+                        class="sm:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg bg-[#e6e2d8] text-[#4a5d23] hover:bg-[#dcd6c6] transition"
+                        aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+                        ☰
+                    </button>
+                </div>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden sm:flex flex-wrap gap-2 mt-4">
+                <a href="index.html"><button class="px-4 py-2 rounded-lg bg-[#e6e2d8] text-[#4a5d23] hover:bg-[#dcd6c6] transition text-sm">
+                    Home
+                </button></a>
+            
+                <a href="Members.html"><button class="px-4 py-2 rounded-lg bg-[#6b8e23] text-white font-semibold text-sm">
+                    Members
+                </button></a>
+                <a href="Expense.html"><button class="px-4 py-2 rounded-lg bg-[#e6e2d8] text-[#4a5d23] hover:bg-[#dcd6c6] transition text-sm">
+                    Add Expense
+                </button></a>
+                <a href="Split.html"><button class="px-4 py-2 rounded-lg bg-[#e6e2d8] text-[#4a5d23] hover:bg-[#dcd6c6] transition text-sm">
+                    Split Calculator
+                </button></a>
+                <a href="Balance.html"><button class="px-4 py-2 rounded-lg bg-[#e6e2d8] text-[#4a5d23] hover:bg-[#dcd6c6] transition text-sm">
+                    Balances
+                </button></a>
+                <a href="History.html"><button class="px-4 py-2 rounded-lg bg-[#e6e2d8] text-[#4a5d23] hover:bg-[#dcd6c6] transition text-sm">
+                    History
+                </button></a>
+            </div>
+
+            <!-- Mobile Navigation (Toggle) -->
+            <div id="mobileMenu" class="sm:hidden hidden mt-4">
+                <div class="grid grid-cols-2 gap-2">
+                    <a href="index.html"><button class="px-4 py-2 rounded-lg bg-[#e6e2d8] text-[#4a5d23] hover:bg-[#dcd6c6] transition text-sm">
+                    Home
+                </button></a>
+            
+                <a href="Members.html"><button class="px-4 py-2 rounded-lg bg-[#e6e2d8] text-[#4a5d23] hover:bg-[#dcd6c6] transition text-sm">
+                    Members
+                </button></a>
+                <a href="Expense.html"><button class="px-4 py-2 rounded-lg bg-[#e6e2d8] text-[#4a5d23] hover:bg-[#dcd6c6] transition text-sm">
+                    Add Expense
+                </button></a>
+                <a href="Split.html"><button class="px-4 py-2 rounded-lg bg-[#6b8e23] text-white font-semibold text-sm">
+                    Split Calculator
+                </button></a>
+                <a href="Balance.html"><button class="px-4 py-2 rounded-lg bg-[#e6e2d8] text-[#4a5d23] hover:bg-[#dcd6c6] transition text-sm">
+                    Balances
+                </button></a>
+                <a href="History.html"><button
+                    class="px-4 py-2 rounded-lg bg-[#e6e2d8] text-[#4a5d23] hover:bg-[#dcd6c6] transition text-sm"></button>
+                History
+                </button></a>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+  <!--  PAGE CONTENT  -->
+  <main class="max-w-7xl mx-auto px-4 py-10">
+
+    <section class="bg-[#fdfcf8] rounded-2xl shadow-lg p-8 border border-[#e2dfd3]">
+
+      <!-- Header -->
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-12 h-12 rounded-xl bg-[#eef2e0] flex items-center justify-center text-[#6b8e23] text-2xl">
+          📊
+        </div>
+        <div>
+          <h2 class="text-3xl font-extrabold text-[#2f3e2e]">
+            Expense History & Summary
+          </h2>
+          <p class="text-[#6b705c] mt-1">
+            View all recorded expenses and spending overview.
+          </p>
+        </div>
+      </div>
+
+      <!-- Summary Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+        <div class="bg-[#f1f4ea] border border-[#dde5cf] rounded-xl p-5">
+          <div class="text-2xl font-extrabold text-[#556b2f]" id="summaryTotal">₹0</div>
+          <div class="text-sm text-[#6b705c] mt-1">Total Spent</div>
+        </div>
+
+        <div class="bg-[#eef5f0] border border-[#d7e7df] rounded-xl p-5">
+          <div class="text-2xl font-extrabold text-[#3a7f5d]" id="summaryCount">0</div>
+          <div class="text-sm text-[#6b705c] mt-1">Total Expenses</div>
+        </div>
+
+        <div class="bg-[#f3f0e8] border border-[#e1dccd] rounded-xl p-5">
+          <div class="text-2xl font-extrabold text-[#7c6f3a]" id="summaryAvg">₹0</div>
+          <div class="text-sm text-[#6b705c] mt-1">Average per Person</div>
+        </div>
+      </div>
+
+      <!-- Spending Distribution -->
+      <div class="mb-8 bg-[#faf8f3] rounded-xl p-5 border border-[#e2dfd3]">
+        <h3 class="text-lg font-bold mb-3 text-[#2f3e2e]">
+          Spending Distribution
+        </h3>
+        <p class="text-sm text-[#6b705c]">
+          No data available yet.
+        </p>
+      </div>
+
+      <!-- Expense Table -->
+      <div>
+        <h3 class="text-xl font-bold mb-4 text-[#2f3e2e]">
+          All Expenses
+        </h3>
+
+        <div class="overflow-x-auto rounded-xl border border-[#e2dfd3]">
+          <table class="w-full text-sm">
+            <thead class="bg-[#f1efe7]">
+              <tr>
+                <th class="px-4 py-3 text-left font-semibold">Date</th>
+                <th class="px-4 py-3 text-left font-semibold">Description</th>
+                <th class="px-4 py-3 text-left font-semibold">Paid By</th>
+                <th class="px-4 py-3 text-right font-semibold">Amount</th>
+                <th class="px-4 py-3 text-center font-semibold">Split Type</th>
+                <th class="px-4 py-3 text-center font-semibold">Action</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td colspan="6" class="text-center py-10 text-[#6b705c]">
+                  No expense history yet!
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </section>
+  </main>
+<script>
+
+// Get data from localStorage
+var members = JSON.parse(localStorage.getItem("m_list")) || [];
+var expenses = JSON.parse(localStorage.getItem("expenses")) || [];
+
+// Get table body & summary elements
+var tableBody = document.querySelector("tbody");
+var summaryTotal = document.getElementById("summaryTotal");
+var summaryCount = document.getElementById("summaryCount");
+var summaryAvg = document.getElementById("summaryAvg");
+
+
+// ---------------------------
+// Load Expense History
+// ---------------------------
+function loadExpenses() {
+
+    // If no expenses
+    if (expenses.length === 0) {
+        tableBody.innerHTML = `
+            <tr>
+                <td colspan="6" style="text-align:center; padding:20px; color:#6b705c;">
+                    No expense history yet!
+                </td>
+            </tr>
+        `;
+        updateSummary();
+        return;
+    }
+
+    // Clear table
+    tableBody.innerHTML = "";
+
+    // Loop through expenses
+    for (var i = 0; i < expenses.length; i++) {
+
+        var exp = expenses[i];
+
+        var row = `
+            <tr class="border-b">
+                <td class="px-4 py-3">${exp.date}</td>
+                <td class="px-4 py-3">${exp.description}</td>
+                <td class="px-4 py-3">${exp.paidBy}</td>
+                <td class="px-4 py-3" style="text-align:right; font-weight:bold;">₹${exp.amount}</td>
+                <td class="px-4 py-3" style="text-align:center;">${exp.splitType}</td>
+                <td class="px-4 py-3" style="text-align:center;">
+                    <button onclick="deleteExpense(${exp.id})" style="color:red;">🗑️</button>
+                </td>
+            </tr>
+        `;
+
+        tableBody.innerHTML += row;
+    }
+
+    updateSummary();
+}
+
+
+// ---------------------------
+// Update Summary Section
+// ---------------------------
+function updateSummary() {
+
+    var total = 0;
+
+    for (var i = 0; i < expenses.length; i++) {
+        total += Number(expenses[i].amount);
+    }
+
+    var avg = 0;
+    if (members.length > 0) {
+        avg = total / members.length;
+    }
+
+    summaryTotal.textContent = "₹" + total.toFixed(2);
+    summaryCount.textContent = expenses.length;
+    summaryAvg.textContent = "₹" + avg.toFixed(2);
+}
+
+function deleteExpense(id) {
+
+    var newList = [];
+
+    for (var i = 0; i < expenses.length; i++) {
+        if (expenses[i].id !== id) {
+            newList.push(expenses[i]);
+        }
+    }
+
+    expenses = newList;
+
+    localStorage.setItem("expenses", JSON.stringify(expenses));
+
+    loadExpenses();
+}
+
+loadExpenses();
+
+</script>
+
+</body>
+</html>

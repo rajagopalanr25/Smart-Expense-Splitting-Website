@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Expense Splitter</title>
+    <link rel="stylesheet" href="Split.css" />
+     <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body  class="min-h-screen bg-[#efede7] text-[#2f3e2e] font-sans">
+
+    <nav class="bg-[#f5f3ee] border-b border-[#d6d2c4] sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+
+            <div class="flex items-center justify-between gap-3">
+                <h1 class="text-lg sm:text-2xl font-extrabold text-[#556b2f] flex items-center gap-2 leading-tight">
+                    Smart Expense Splitter
+                </h1>
+
+                <div class="flex items-center gap-3">
+                    <span class="hidden sm:inline text-sm text-[#6b705c]">Group</span>
+                    <button id="menuBtn"
+                        class="sm:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg bg-[#e6e2d8] text-[#4a5d23] hover:bg-[#dcd6c6] transition"
+                        aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+                        ☰
+                    </button>
+                </div>
+            </div>
+
+            <div class="hidden sm:flex flex-wrap gap-2 mt-4">
+                <a href="index.html"><button class="px-4 py-2 rounded-lg bg-[#e6e2d8] text-[#4a5d23] hover:bg-[#dcd6c6] transition text-sm">
+                    Home
+                </button></a>
+            
+                <a href="Members.html"><button class="px-4 py-2 rounded-lg bg-[#e6e2d8] text-[#4a5d23] hover:bg-[#dcd6c6] transition text-sm">
+                    Members
+                </button></a>
+                <a href="Expense.html"><button class="px-4 py-2 rounded-lg bg-[#e6e2d8] text-[#4a5d23] hover:bg-[#dcd6c6] transition text-sm">
+                    Add Expense
+                </button></a>
+                <a href="Split.html"><button  class="px-4 py-2 rounded-lg bg-[#6b8e23] text-white font-semibold text-sm">
+                    Split Calculator
+                </button></a>
+                <a href="Balance.html"><button class="px-4 py-2 rounded-lg bg-[#e6e2d8] text-[#4a5d23] hover:bg-[#dcd6c6] transition text-sm">
+                    Balances
+                </button></a>
+                <a href="History.html"><button class="px-4 py-2 rounded-lg bg-[#e6e2d8] text-[#4a5d23] hover:bg-[#dcd6c6] transition text-sm">
+                    History
+                </button></a>
+            </div>
+
+            <div id="mobileMenu" class="sm:hidden hidden mt-4">
+                <div class="grid grid-cols-2 gap-2">
+                    <a href="index.html"><button class="px-4 py-2 rounded-lg bg-[#e6e2d8] text-[#4a5d23] hover:bg-[#dcd6c6] transition text-sm">
+                    Home
+                </button></a>
+            
+                <a href="Members.html"><button class="px-4 py-2 rounded-lg bg-[#e6e2d8] text-[#4a5d23] hover:bg-[#dcd6c6] transition text-sm">
+                    Members
+                </button></a>
+                <a href="Expense.html"><button class="px-4 py-2 rounded-lg bg-[#e6e2d8] text-[#4a5d23] hover:bg-[#dcd6c6] transition text-sm">
+                    Add Expense
+                </button></a>
+                <a href="Split.html"><button class="px-4 py-2 rounded-lg bg-[#6b8e23] text-white font-semibold text-sm">
+                    Split Calculator
+                </button></a>
+                <a href="Balance.html"><button class="px-4 py-2 rounded-lg bg-[#e6e2d8] text-[#4a5d23] hover:bg-[#dcd6c6] transition text-sm">
+                    Balances
+                </button></a>
+                <a href="History.html"><button
+                    class="px-4 py-2 rounded-lg bg-[#e6e2d8] text-[#4a5d23] hover:bg-[#dcd6c6] transition text-sm"></button>
+                History
+                </button></a>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+    <!-- Split Type -->
+      <section class="Splitter mx-auto mt-24 w-[90%] max-w-[900px] bg-white rounded-2xl shadow-xl p-5 font-bold">
+  <h1 class="mb-5 text-left text-2xl">Select Split Type</h1>
+
+  <ul class="flex gap-5 bg-[#EFEDE7] p-5 rounded-2xl justify-between">
+    <li id="equalTab"
+        class="flex-1 border border-black bg-[#6B8E23] text-white text-lg font-bold py-5 rounded-2xl text-center cursor-pointer">
+      Equal Split
+    </li>
+
+    <li id="customTab"
+        class="flex-1 border border-black bg-[#6B8E23] text-white text-lg font-bold py-5 rounded-2xl text-center cursor-pointer">
+      Custom Split
+    </li>
+  </ul>
+
+  <div class="Splitter-content mt-5">
+
+    <!-- Equal Split -->
+    <div id="equalContent">
+      <h2 class="mt-3 ml-3 text-left text-xl font-bold">Equal Split Calculation</h2>
+      <h4 class="mt-3 ml-3 text-left font-semibold">Total amount</h4>
+
+      <input id="equalAmount"
+             type="number"
+             class="mt-3 mb-5 p-4 w-full border-2 border-black rounded-xl"
+             placeholder="Enter amount" />
+
+      <div id="equalResult" class="mt-4 text-lg text-left font-semibold"></div>
+    </div>
+
+    <!-- Custom Split -->
+    <div id="customContent" style="display:none;">
+      <h2 class="mt-3 ml-3 text-left text-xl font-bold">Custom Split Calculation</h2>
+
+      <h4 class="mt-3 ml-3 text-left font-semibold">Total amount</h4>
+      <input id="customAmount"
+             type="number"
+             class="mt-3 mb-5 p-4 w-full border-2 border-black rounded-xl"
+             placeholder="Enter amount" />
+
+      <div id="customInputs" class="mt-4"></div>
+      <div id="customResult" class="mt-4 text-lg font-semibold"></div>
+    </div>
+
+  </div>
+</section>
+
+
+
+    <script src="Split.js"></script>
+  </body>
+</html>
