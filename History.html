@@ -165,23 +165,17 @@
   </main>
 <script>
 
-// Get data from localStorage
 var members = JSON.parse(localStorage.getItem("m_list")) || [];
 var expenses = JSON.parse(localStorage.getItem("expenses")) || [];
 
-// Get table body & summary elements
 var tableBody = document.querySelector("tbody");
 var summaryTotal = document.getElementById("summaryTotal");
 var summaryCount = document.getElementById("summaryCount");
 var summaryAvg = document.getElementById("summaryAvg");
 
 
-// ---------------------------
-// Load Expense History
-// ---------------------------
 function loadExpenses() {
 
-    // If no expenses
     if (expenses.length === 0) {
         tableBody.innerHTML = `
             <tr>
@@ -194,10 +188,8 @@ function loadExpenses() {
         return;
     }
 
-    // Clear table
     tableBody.innerHTML = "";
 
-    // Loop through expenses
     for (var i = 0; i < expenses.length; i++) {
 
         var exp = expenses[i];
@@ -222,9 +214,6 @@ function loadExpenses() {
 }
 
 
-// ---------------------------
-// Update Summary Section
-// ---------------------------
 function updateSummary() {
 
     var total = 0;
