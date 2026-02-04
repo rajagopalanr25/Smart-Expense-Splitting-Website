@@ -1,13 +1,8 @@
-// -----------------------------
-// STEP 1: Load members & expenses
-// -----------------------------
+
 let members = JSON.parse(localStorage.getItem("m_list")) || [];
 let expenses = JSON.parse(localStorage.getItem("expenses")) || [];
 
 
-// -----------------------------
-// STEP 2: Create balance object
-// -----------------------------
 let balance = {};
 
 members.forEach(member => {
@@ -15,9 +10,6 @@ members.forEach(member => {
 });
 
 
-// -----------------------------
-// STEP 3: Calculate total expense
-// -----------------------------
 let totalAmount = 0;
 
 expenses.forEach(exp => {
@@ -25,9 +17,6 @@ expenses.forEach(exp => {
 });
 
 
-// -----------------------------
-// STEP 4: Calculate equal share
-// -----------------------------
 let eachShare = 0;
 
 if (members.length > 0) {
@@ -35,25 +24,16 @@ if (members.length > 0) {
 }
 
 
-// -----------------------------
-// STEP 5: Add paid amount
-// -----------------------------
 expenses.forEach(exp => {
     balance[exp.paidBy] = balance[exp.paidBy] + exp.amount;
 });
 
 
-// -----------------------------
-// STEP 6: Subtract share
-// -----------------------------
 members.forEach(member => {
     balance[member.name] = balance[member.name] - eachShare;
 });
 
 
-// -----------------------------
-// STEP 7: Show Individual Balances
-// -----------------------------
 let individualCard = document.querySelectorAll(".bg-white.rounded-3xl.shadow-lg.p-8")[0];
 
 individualCard.innerHTML = `
@@ -88,9 +68,6 @@ for (let name in balance) {
 }
 
 
-// -----------------------------
-// STEP 8: Separate payers & receivers
-// -----------------------------
 let payList = [];
 let receiveList = [];
 
@@ -111,10 +88,6 @@ for (let name in balance) {
     }
 }
 
-
-// -----------------------------
-// STEP 9: Show Settlement
-// -----------------------------
 let settlementCard = document.querySelectorAll(".bg-white.rounded-3xl.shadow-lg.p-8")[1];
 
 settlementCard.innerHTML = `
@@ -147,10 +120,6 @@ while (i < payList.length && j < receiveList.length) {
     if (receiveList[j].amount === 0) j++;
 }
 
-
-// -----------------------------
-// STEP 10: If nothing to settle
-// -----------------------------
 if (payList.length === 0 && receiveList.length === 0) {
     settlementCard.innerHTML += `<p class="text-gray-500">Everyone is settled 🎉</p>`;
 }
