@@ -2,64 +2,75 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expense Splitter</title>
-    <link rel="stylesheet" href="Home.css">
-     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expense Splitter</title>
+
+  <link rel="stylesheet" href="Home.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
-   <!-- NAVBAR -->
-    <nav class="bg-[#f5f3ee] border-b border-[#d6d2c4] sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+  <!-- NAVBAR -->
+  <nav class="bg-[#f5f3ee] border-b border-[#d6d2c4] sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
 
-            <!-- Top Row -->
-            <div class="flex items-center justify-between gap-3">
-                <h1 class="text-lg sm:text-2xl font-extrabold text-[#556b2f] flex items-center gap-2 leading-tight">
-                    Smart Expense Splitter
-                </h1>
+      <!-- Top Row -->
+      <div class="flex items-center justify-between gap-3">
+        <h1 class="text-lg sm:text-2xl font-extrabold text-[#556b2f] flex items-center gap-2 leading-tight">
+          Smart Expense Splitter
+        </h1>
 
-                <div class="flex items-center gap-3">
-                    <span class="hidden sm:inline text-sm text-[#6b705c]">Group</span>
+        <div class="flex items-center gap-3">
+          <span class="hidden sm:inline text-sm text-[#6b705c]">Group</span>
 
-                    <!-- Mobile Menu Button -->
-                    <button id="menuBtn"
-                        class="sm:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg bg-[#e6e2d8] text-[#4a5d23] hover:bg-[#dcd6c6] transition"
-                        aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
-                        ☰
-                    </button>
-                </div>
-            </div>
+          <!-- Mobile Menu Button -->
+          <button id="menuBtn"
+            class="sm:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg bg-[#e6e2d8] text-[#4a5d23] hover:bg-[#dcd6c6] transition"
+            aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+            ☰
+          </button>
+        </div>
+      </div>
 
-            <!-- Desktop Navigation -->
-            <div class="hidden sm:flex flex-wrap gap-2 mt-4">
-                <a href="index.html"><button class="px-4 py-2 rounded-lg bg-[#6b8e23] text-white font-semibold text-sm">
-                    Home
-                </button></a>
+      <!-- Desktop Navigation -->
+      <div class="hidden sm:flex flex-wrap gap-2 mt-4">
+        <a href="index.html"
+          class="px-4 py-2 rounded-lg bg-[#6b8e23] text-white font-semibold text-sm inline-flex items-center justify-center">
+          Home
+        </a>
 
-                <a href="Members.html"><button class="px-4 py-2 rounded-lg bg-[#e6e2d8] text-[#4a5d23] hover:bg-[#dcd6c6] transition text-sm">
-                    Members
-                </button></a>
-                <a href="Expense.html"><button class="px-4 py-2 rounded-lg bg-[#e6e2d8] text-[#4a5d23] hover:bg-[#dcd6c6] transition text-sm">
-                    Add Expense
-                </button></a>
-                <a href="Split.html"><button class="px-4 py-2 rounded-lg bg-[#e6e2d8] text-[#4a5d23] hover:bg-[#dcd6c6] transition text-sm">
-                    Split Calculator
-                </button></a>
-                <a href="Balance.html"><button class="px-4 py-2 rounded-lg bg-[#e6e2d8] text-[#4a5d23] hover:bg-[#dcd6c6] transition text-sm">
-                    Balances
-                </button></a>
-                <a href="History.html"><button class="px-4 py-2 rounded-lg bg-[#e6e2d8] text-[#4a5d23] hover:bg-[#dcd6c6] transition text-sm">
-                    History
-                </button></a>
-            </div>
+        <a href="Members.html"
+          class="px-4 py-2 rounded-lg bg-[#e6e2d8] text-[#4a5d23] hover:bg-[#dcd6c6] transition text-sm inline-flex items-center justify-center">
+          Members
+        </a>
+          <a href="Expense.html"
+          class="px-4 py-2 rounded-lg bg-[#e6e2d8] text-[#4a5d23] hover:bg-[#dcd6c6] transition text-sm inline-flex items-center justify-center">
+          Add Expense
+        </a>
 
+        <a href="Split.html"
+          class="px-4 py-2 rounded-lg bg-[#e6e2d8] text-[#4a5d23] hover:bg-[#dcd6c6] transition text-sm inline-flex items-center justify-center">
+          Split Calculator
+        </a>
+
+        <a href="Balance.html"
+          class="px-4 py-2 rounded-lg bg-[#e6e2d8] text-[#4a5d23] hover:bg-[#dcd6c6] transition text-sm inline-flex items-center justify-center">
+          Balances
+        </a>
+
+        <a href="History.html"
+          class="px-4 py-2 rounded-lg bg-[#e6e2d8] text-[#4a5d23] hover:bg-[#dcd6c6] transition text-sm inline-flex items-center justify-center">
+          History
+        </a>
+      </div>
+        </div>
             <!-- Mobile Navigation (Toggle) -->
             <div id="mobileMenu" class="sm:hidden hidden mt-4">
                 <div class="grid grid-cols-2 gap-2">
@@ -86,57 +97,56 @@
                 </div>
             </div>
 
-        </div>
-    </nav>
-    <section class="hero">
-        <div class="hero_content">
-            <h1>Welcome to our Expense Splitter</h1>
-            <p>Easily split group expense and track who owes what - simple,fast and stress-free</p>
-        </div>
-    </section>
+       
+      </div>
 
-    <section class="group_section">
-        <h2>Create or Select Group</h2>
+    </div>
+  </nav>
 
-        <div class="group_input">
-            <input type="text" placeholder="Enter Group Name" class="group_input_name">
-            <button class="group_btn">Create Group</button>
-        </div>
-        
-    </section>
+  <section class="hero">
+    <div class="hero_content">
+      <h1>Welcome to our Expense Splitter</h1>
+      <p>Easily split group expense and track who owes what - simple,fast and stress-free</p>
+    </div>
+  </section>
 
-    <!-- HOW IT WORKS ? -->
+  <section class="group_section">
+    <h2>Create or Select Group</h2>
 
+    <div class="group_input">
+      <input type="text" placeholder="Enter Group Name" class="group_input_name">
+      <button class="group_btn">Create Group</button>
+    </div>
+  </section>
 
-    <section class="how_it_works">
+  <!-- HOW IT WORKS ? -->
+  <section class="how_it_works">
+    <h2>How It Works</h2>
 
-        <h2>How It Works</h2>
+    <ol class="steps">
+      <li class="step">
+        <p>Create a group with your friends or team members.</p>
+      </li>
 
-        <ol class="steps">
+      <li class="step">
+        <p>Add members to the group easily.</p>
+      </li>
 
-            <li class="step">
-                <p>Create a group with your friends or team members.</p>
-            </li>
+      <li class="step">
+        <p>Add expenses whenever someone pays.</p>
+      </li>
 
-            <li class="step">
-                <p>Add members to the group easily.</p>
-            </li>
+      <li class="step">
+        <p>View total expenses and individual shares.</p>
+      </li>
 
-            <li class="step">
-                <p>Add expenses whenever someone pays.</p>
-            </li>
+      <li class="step">
+        <p>Settle up and keep everything transparent.</p>
+      </li>
+    </ol>
+  </section>
 
-            <li class="step">
-                <p>View total expenses and individual shares.</p>
-            </li>
-
-            <li class="step">
-                <p>Settle up and keep everything transparent.</p>
-            </li>
-
-        </ol>
-    </section>
-    <script src="Home.js"></script>
+  <script src="Home.js"></script>
 </body>
 
 </html>
